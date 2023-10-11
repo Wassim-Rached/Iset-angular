@@ -1,0 +1,34 @@
+<div>
+  <span> Vente num °{{ index + 1 }} </span>
+  <img
+    width="100px"
+    height="70px"
+    [src]="tableau.picture"
+    [alt]="tableau.name"
+  />
+  <span>{{ tableau.name }}</span>
+  <span>{{ tableau.painter }}</span>
+  <p>
+    * Genre:
+    <input type="checkbox" [checked]="tableau.genre == 'surrealisme'" />
+    {{ tableau.genre | titlecase }}
+    <span> Prix Propose: ${{ tableau.price | number : "0.2" }} </span>
+    <span>
+      Ajouter : <input type="number" #amount />
+      <button
+        (click)="onNovelleOffre(amount.value)"
+        id="nouvelle-offre-btn"
+        class=""
+        *ngIf="!vendu"
+      >
+        Nouvelle offre
+      </button>
+      <button
+        [ngClass]="{ btn: true, 'btn-success': !vendu, 'btn-danger': vendu }"
+        (click)="onVendu()"
+      >
+        Vendu
+      </button>
+    </span>
+  </p>
+</div>

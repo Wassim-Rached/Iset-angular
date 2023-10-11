@@ -1,0 +1,10 @@
+<h1>
+  Ventes aux encheres du :
+  {{ "09-October-2023" | date : "* dd * MMMM * YYYY *" }}
+</h1>
+
+<ol>
+  <li *ngFor="let t of tableaux; index as i">
+    <wass-tableau [tableau]="t" [index]="i"></wass-tableau>
+  </li>
+</ol>
