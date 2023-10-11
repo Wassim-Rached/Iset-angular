@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div
+      class="card col-md-4"
+      *ngFor="let personne of tabPersonnages; let i = index"
+    >
+      <div class="card-header">
+        <p class="text-center">Nom:{{ personne.nom }}</p>
+      </div>
+      <div class="card-body text-center">
+        <div>
+          <img
+            class="rounded-circle"
+            [src]="personne.image"
+            [alt]="personne.nom"
+          />
+        </div>
+        <span
+          ><input readonly type="checkbox" [checked]="personne.majeur" />majeur
+        </span>
+        <span class="badge rounded-pill bg-secondary"
+          >Nombre d'abonnes: {{ personne.nb }}</span
+        >
+      </div>
+      <div class="card-footer text-center">
+        <button class="btn btn-primary" (click)="onSabonner(i)">
+          <span class="fa-solid fa-pencil"></span>
+          S'abonner
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

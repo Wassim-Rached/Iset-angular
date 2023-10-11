@@ -1,0 +1,11 @@
+<hr />
+<h1>EMPLOYE COMPONENT :</h1>
+
+<ul>
+  <li>{{ employe.nom | uppercase }}</li>
+  <li>{{ employe.prenom | titlecase }}</li>
+  <li>{{ employe.date | date : "dd/MM/yyyy" }}</li>
+  <li>{{ employe.salaire | currency }}</li>
+</ul>
+<p>{{ "waaa" | nomperso }}</p>
+{{ employe | json }}

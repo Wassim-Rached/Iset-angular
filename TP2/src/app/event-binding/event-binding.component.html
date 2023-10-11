@@ -1,0 +1,5 @@
+<h1>{{ titre }}</h1>
+<input type="button" value="Afficher" (click)="onAfficher()" />
+<input type="text" #textbox />
+<input type="button" value="Display" (click)="onDisplay(textbox.value)" />
+<input type="text" (keypress)="OnKeyPress($event)" />

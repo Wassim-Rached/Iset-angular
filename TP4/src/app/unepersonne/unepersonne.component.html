@@ -1,0 +1,8 @@
+Nom : {{ pers.nom }} Age : {{ pers.age }}
+<input
+  type="checkbox"
+  [name]="pers.nom + 'etudiant'"
+  [id]="pers.nom"
+  [checked]="pers.isEtudiant"
+/>
+<label [for]="pers.nom">Etudiant</label>

@@ -1,0 +1,10 @@
+<h1>Informations sur les voitures</h1>
+<div>
+  <button (click)="onListeDesMarque('Ford')">Liste des Ford</button>
+  <button (click)="onListeDesMarque('Renault')">Liste des Renault</button>
+  <button (click)="onNombreDeClios()">Nombre de clios</button>
+</div>
+<label for="num_mar"> donnez le numero de marticule</label>
+<input type="text" name="num_mar" #num_mar />
+<button (click)="onChercher(num_mar.value)">Chercher</button>
+<div>{{ result | json }}</div>

@@ -1,0 +1,50 @@
+<hr />
+<h1>Liste des produits informatiques</h1>
+<ul>
+  <li *ngFor="let materiel of materiels; index as i">
+    <img [src]="materiel.image" [alt]="materiel.nom" />
+    Reference {{ materiel.reference }} prix : {{ materiel.prix }} etat:
+    {{ materiel.etat }}
+    <button (click)="onRepare(i)" *ngIf="materiel.etat == 'endommagé'">
+      Repare
+    </button>
+  </li>
+</ul>
+<hr />
+<div class="container">
+  <h1>Liste des produits informatiques (bootstrap)</h1>
+
+  <ul class="list-group">
+    <ng-container *ngFor="let materiel of materiels; let i = index">
+      <li
+        [ngClass]="{
+          'list-group-item': true,
+          ' list-group-item-info': materiel.etat == 'endommagé'
+        }"
+      >
+        <p>{{ materiel.nom | uppercase }}</p>
+        <img width="200px" [src]="defaultImage" [alt]="materiel.nom" />
+        Reference {{ materiel.reference }}
+        <span
+          [ngClass]="{
+            badge: true,
+            'rounded-pill': true,
+            'bg-warning': materiel.prix < 200,
+            'bg-dark': materiel.prix >= 200
+          }"
+        >
+          <i *ngIf="materiel.prix >= 200" class="fa-solid fa-coins"></i>
+          prix : {{ materiel.prix | number : ".3" }}DT
+        </span>
+        état: {{ materiel.etat | titlecase }}
+        <button
+          [ngClass]="{ 'btn btn-primary': true }"
+          (click)="onRepare(i)"
+          *ngIf="materiel.etat === 'endommagé'"
+        >
+          Réparer
+        </button>
+      </li>
+    </ng-container>
+  </ul>
+</div>

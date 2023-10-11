@@ -1,0 +1,10 @@
+<h1>Liste des employes</h1>
+<ul>
+  <li *ngFor="let employe of lesemployes">
+    <span> matricule : {{ employe.matricule }} </span>
+    -
+    <span> nom : {{ employe.nom }}</span>
+    -
+    <span> poste : {{ employe.poste }}</span>
+  </li>
+</ul>

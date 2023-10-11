@@ -1,0 +1,23 @@
+<img class="phone-img" src="assets/hwawei.png" alt="" />
+<p>marque:{{ telephone.marque }}</p>
+<p>modele : {{ telephone.modele }}</p>
+<input
+  type="radio"
+  value="Bas-de-gamme"
+  name="game"
+  id="Bas-de-gamme"
+  [checked]="!haut_gamme()"
+  readonly
+/>
+<label for="Bas-de-gamme">Bas-de-gamme</label>
+<input
+  type="radio"
+  value="Haut-de-gamme"
+  name="gamme"
+  id="Haut-de-gamme"
+  [checked]="haut_gamme()"
+  readonly
+/>
+<label for="Haut-de-gamme">Haut-de-gamme</label>
+<div>prix :<input type="text" [(ngModel)]="telephone.prix" /></div>
+<button (click)="onDetails()">Details</button>

@@ -1,0 +1,10 @@
+<div *ngFor="let personne of tabPersonnages; let i = index">
+  <img [src]="personne.image" [alt]="personne.nom" />
+  <span>Nom:{{ personne.nom }}</span>
+  <span
+    ><input readonly type="checkbox" [checked]="personne.majeur" />majeur</span
+  >
+  <span>Nombre d'abonnes:{{ personne.nb }}</span>
+  <button (click)="onSabonner(i)">S'abonner</button>
+  <p>le nombre de personnage majeurs est : {{ nombre_de_majeur() }}</p>
+</div>

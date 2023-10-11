@@ -1,0 +1,51 @@
+<ul>
+  <li *ngFor="let t of tab; index as indice; count as compteur">
+    {{ t }} a pour position {{ indice + 1 }}/{{ compteur }}
+  </li>
+</ul>
+
+<hr />
+
+<ul>
+  <li *ngFor="let t of tab; index as indice; count as compteur">
+    {{ t }} <button (click)="onPosition(indice)">Position</button>
+  </li>
+</ul>
+
+<hr />
+
+<h1>Affichage des boutons des éléments pairs du tableau</h1>
+<ul>
+  <li *ngFor="let t of tab; index as indice; count as compteur">
+    {{ t }}
+    <button *ngIf="t % 2 == 0" (click)="onPosition(indice)">Position</button>
+  </li>
+</ul>
+
+<hr />
+
+<h1>Affichage des éléments pairs du tableau</h1>
+<ul>
+  <ng-container *ngFor="let t of tab">
+    <li *ngIf="t % 2 == 0">
+      {{ t }}
+    </li>
+  </ng-container>
+</ul>
+
+<hr />
+
+<h1>Element du tableau avec classe personalisee</h1>
+
+<ul>
+  <li *ngFor="let t of tab">
+    <i
+      [ngClass]="{
+        'fa-solid': true,
+        'fa-circle-arrow-up': t > 50,
+        'fa-circle-arrow-down': t <= 50
+      }"
+    ></i>
+    {{ t }}
+  </li>
+</ul>

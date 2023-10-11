@@ -1,0 +1,15 @@
+<!-- <p>{{ pizza.nom | titlecase }}</p>
+<img [src]="pizza.image" [alt]="pizza.nom" />
+<span> prix : {{ pizza.prix }} </span>
+<span *ngIf="pizza.vegetarien">pizza vigitarian</span> -->
+
+<!-- bootstarp v -->
+<div [ngClass]="{ 'bg-warning': pizza.vegetarien }">
+  <p [ngClass]="{ badge: true, 'bg-dark': true }">
+    {{ pizza.nom | uppercase }}
+  </p>
+  <div class="d-flex justify-content-between">
+    <img class="rounded-circle" [src]="pizza.image" [alt]="pizza.nom" />
+    <p>prix : {{ pizza.prix }}DT</p>
+  </div>
+</div>

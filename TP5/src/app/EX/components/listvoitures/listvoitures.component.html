@@ -1,0 +1,11 @@
+<h1>Liste des voitures</h1>
+
+<ul>
+  <li *ngFor="let voiture of voitures">
+    <span>{{ voiture.marque }}</span>
+    --
+    <span>{{ voiture.modele }}</span>
+    --
+    <span>{{ voiture.numSerie }}</span>
+  </li>
+</ul>
