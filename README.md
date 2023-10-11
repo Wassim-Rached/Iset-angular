@@ -1,2 +1,2 @@
 # iset-angular
-## NAJMA WENTA MACHI
+## NAJMA WENTA MACHII
