@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center mt-3">
+    <div class="col-4">
+      <div *ngIf="livre" class="card text-center">
+        <div class="card-header">{{ livre.titre }}</div>
+        <div class="card-body">
+          <p class="card-text">Auteur: {{ livre.auteur }}</p>
+          <p class="card-text">Categorie: {{ livre.categorie }}</p>
+          <span
+            [ngClass]="{
+              badge: true,
+              'bg-primary': !livre.nouveau,
+              'bg-warning': livre.nouveau
+            }"
+            >Prix:{{ livre.prix | number : "0.3" }} DT</span
+          >
+        </div>
+        <div class="card-footer">
+          <button (click)="onRetour()" class="btn btn-dark">Retour</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!livre">
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="text-center">
+          <h1 class="display-1 fw-bold">404</h1>
+          <p class="fs-3">
+            <span class="text-danger">Opps!</span> Book not found.
+          </p>
+          <a routerLink="/" class="btn btn-primary">Go Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Liste des livres</h1>
+  <select
+    class="form-select"
+    aria-label="Default select example"
+    (change)="onCategorieChange($event)"
+  >
+    <option *ngFor="let categorie of categories" [value]="categorie">
+      {{ categorie }}
+    </option>
+    <option value="all">All</option>
+  </select>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Infos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let livre of livres">
+        <td>{{ livre.id }}</td>
+        <td>{{ livre.titre }}</td>
+        <td>
+          <button (click)="goToLivre(livre.id)" class="btn btn-info">
+            Infos
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
