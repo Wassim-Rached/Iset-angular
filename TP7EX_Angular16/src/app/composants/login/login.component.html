@@ -1,0 +1,29 @@
+<div class="container">
+  <img src="assets/isetch.png" alt="Logo ISET" class="logo" />
+  <strong>Authentification</strong>
+  <div class="mb-3 mt-3">
+    <label class="form-label">Nom d'utilisateur:</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Introduisez votre nom d'utilisateur (etud ou prof)"
+      #username
+    />
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password:</label>
+    <input
+      #password
+      type="password"
+      class="form-control"
+      placeholder="Introduisez votre mot de passe (pwdEtud ou pwdProf)"
+    />
+  </div>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="login(username.value, password.value)"
+  >
+    S'authentifier
+  </button>
+</div>

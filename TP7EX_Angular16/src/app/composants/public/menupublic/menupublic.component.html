@@ -1,0 +1,31 @@
+<img src="assets/logo.png" alt="banniere ISET" />
+<div>
+  <img src="assets/isetch.png" alt="Logo ISET" class="logo" />
+  <strong class="text-center"
+    >INSTITUT SUPÉRIEUR DES ETUDES TECHNOLOGIQUES DE CHARGUIA</strong
+  >
+</div>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="nouveautes">Nouveautés</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="institut">Institut</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="deps">Départements</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="formation">Formation</a>
+        </li>
+      </ul>
+      <button class="btn btn-info" (click)="GoToLogin()" type="button">
+        Espace Extranet
+      </button>
+    </div>
+  </div>
+</nav>
