@@ -5,9 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProduitsComponent } from './application/produits/produits.component';
+import { ListparcsComponent } from './EXERCICE/composants/listparcs/listparcs.component';
+import { SelectedParcComponent } from './EXERCICE/composants/selected-parc/selected-parc.component';
+import { ErreurComponent } from './EXERCICE/composants/erreur/erreur.component';
 
 @NgModule({
-  declarations: [AppComponent, ProduitsComponent],
+  declarations: [AppComponent, ProduitsComponent, ListparcsComponent, SelectedParcComponent, ErreurComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
