@@ -1,0 +1,25 @@
+<h1>liste des produits</h1>
+
+<ul>
+  <li *ngFor="let produit of lesProduits">
+    <span> Id: {{ produit.id }} </span>
+    -
+    <span> Libelle: {{ produit.libelle }} </span>
+    -
+    <span> Prix: {{ produit.prix }} </span>
+  </li>
+</ul>
+
+<h3>async version</h3>
+
+<ul>
+  <li *ngFor="let produit of lesProduits$ | async">
+    <span> Id: {{ produit.id }} </span>
+    -
+    <span> Libelle: {{ produit.libelle }} </span>
+    -
+    <span> Prix: {{ produit.prix }} </span>
+  </li>
+</ul>
+
+<button (click)="onAjouter()">Ajouter</button>
