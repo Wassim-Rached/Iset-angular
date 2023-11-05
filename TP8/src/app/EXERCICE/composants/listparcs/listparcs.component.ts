@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ParcService } from '../../services/parc.service';
 import { Parc } from '../../classes/parc';
+import { ParcLikeEvent } from '../parc/parc.component';
 
 @Component({
   selector: 'app-listparcs',
@@ -9,8 +10,6 @@ import { Parc } from '../../classes/parc';
 })
 export class ListparcsComponent implements OnInit {
   public parcs: Parc[] = [];
-  public defaultImgUrl =
-    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Sleeping_Beauty_Castle_2019.jpg/1200px-Sleeping_Beauty_Castle_2019.jpg';
 
   constructor(private parcService: ParcService) {}
 
@@ -18,7 +17,7 @@ export class ListparcsComponent implements OnInit {
     this.parcService.getParks().subscribe((parcs) => (this.parcs = parcs));
   }
 
-  public onLike(id: number, nbLikes: number): void {
+  public onLike({ id, nbLikes }: ParcLikeEvent): void {
     this.parcService
       .updatePark(id, { nbLikes: ++nbLikes })
       .subscribe((parc) => {
