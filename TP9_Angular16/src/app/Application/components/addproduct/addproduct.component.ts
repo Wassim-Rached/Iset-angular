@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../enum/category';
 
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { Product } from '../../classes/product';
 import { ProductService } from '../../services/product.service';
 
@@ -13,30 +13,52 @@ import { ProductService } from '../../services/product.service';
 export class AddproductComponent implements OnInit {
   lescategories = Object.values(Category);
   lesproduits: Product[] = [];
+  productForm!: FormGroup;
 
-  constructor(private productService: ProductService) {}
+  // productForm = new FormGroup({
+  //   id: new FormControl(1, { nonNullable: true }),
+  //   libelle: new FormControl('', { nonNullable: true }),
+  //   prix: new FormControl(0, { nonNullable: true }),
+  //   madeIn: new FormControl('Tunisie', { nonNullable: true }),
+  //   categorie: new FormControl(Category.Accessoires, { nonNullable: true }),
+  //   nouveau: new FormControl(false, { nonNullable: true }),
+  // });
 
-  productForm = new FormGroup({
-    id: new FormControl(1, { nonNullable: true }),
-    libelle: new FormControl('', { nonNullable: true }),
-    prix: new FormControl(0, { nonNullable: true }),
-    madeIn: new FormControl('Tunisie', { nonNullable: true }),
-    categorie: new FormControl(Category.Accessoires, { nonNullable: true }),
-    nouveau: new FormControl(false, { nonNullable: true }),
-  });
+  constructor(
+    private productService: ProductService,
+    private formBuilder: FormBuilder
+  ) {}
 
   onSubmitForm() {
-    const newProduct: Product = this.productForm.value as Product;
-    this.productService.addProduit(newProduct).subscribe((produit) => {
-      this.lesproduits.push(produit);
-    });
+    console.log(this.productForm.value);
+    // const newProduct: Product = this.productForm.value as Product;
+    // this.productService.addProduit(newProduct).subscribe((produit) => {
+    //   this.lesproduits.push(produit);
+    // });
   }
 
   onResetForm() {
     this.productForm.reset();
+    this.productForm.get('madeIn')?.setValue('Autre');
+    this.productForm.get('categorie')?.setValue(Category.Fourniture);
   }
 
   ngOnInit(): void {
+    this.productForm = this.formBuilder.nonNullable.group({
+      id: [1],
+      libelle: [''],
+      prix: [0],
+      madeIn: ['Tunisie'],
+      categorie: [Category.Accessoires],
+      nouveau: [true],
+    });
+
+    this.productForm.get('nouveau')?.setValue(false);
+
+    this.productForm.get('libelle')?.valueChanges.subscribe((value) => {
+      console.log(value);
+    });
+
     this.productService.getProduits().subscribe({
       next: (produits) => {
         this.lesproduits = produits;
