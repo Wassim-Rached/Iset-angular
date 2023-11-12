@@ -61,9 +61,9 @@
       </select>
     </div>
     <div>
-      <label>
+      <label class="form-check-label">
         <input
-          class="form-check"
+          class="form-check-input"
           type="checkbox"
           name="nouv"
           formControlName="nouveau"
@@ -71,8 +71,32 @@
         Nouveau
       </label>
     </div>
-    <input type="submit" value="Ajouter" />
-    <input type="button" (click)="onResetForm()" value="Effacer" />
+    <h5>Definition des points de vente</h5>
+    <div formArrayName="pointsVente">
+      <div *ngFor="let pv of lesPointsVente.controls; index as i">
+        <label>Point de vente n°{{ i + 1 }}</label>
+        <input class="form-control" type="text" [formControlName]="i" />
+      </div>
+    </div>
+    <input
+      type="button"
+      value="Ajouter un point de vente"
+      class="btn btn-secondary btn-sm"
+      (click)="onAjouter()"
+    />
+    <input
+      type="button"
+      class="btn btn-danger"
+      (click)="onVider()"
+      value="vider"
+    />
+    <input class="btn btn-success" type="submit" value="Ajouter" />
+    <input
+      class="btn btn-warning"
+      type="button"
+      (click)="onResetForm()"
+      value="Effacer"
+    />
   </form>
 </div>
 <div class="container mt-5">

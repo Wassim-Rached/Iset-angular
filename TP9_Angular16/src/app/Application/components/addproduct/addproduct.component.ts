@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../../enum/category';
 
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, FormArray } from '@angular/forms';
 import { Product } from '../../classes/product';
 import { ProductService } from '../../services/product.service';
 
@@ -14,6 +14,7 @@ export class AddproductComponent implements OnInit {
   lescategories = Object.values(Category);
   lesproduits: Product[] = [];
   productForm!: FormGroup;
+  lesPointsVente!: FormArray;
 
   // productForm = new FormGroup({
   //   id: new FormControl(1, { nonNullable: true }),
@@ -30,11 +31,10 @@ export class AddproductComponent implements OnInit {
   ) {}
 
   onSubmitForm() {
-    console.log(this.productForm.value);
-    // const newProduct: Product = this.productForm.value as Product;
-    // this.productService.addProduit(newProduct).subscribe((produit) => {
-    //   this.lesproduits.push(produit);
-    // });
+    const newProduct: Product = this.productForm.value as Product;
+    this.productService.addProduit(newProduct).subscribe((produit) => {
+      this.lesproduits.push(produit);
+    });
   }
 
   onResetForm() {
@@ -43,7 +43,17 @@ export class AddproductComponent implements OnInit {
     this.productForm.get('categorie')?.setValue(Category.Fourniture);
   }
 
+  onAjouter() {
+    this.lesPointsVente.push(this.formBuilder.control(''));
+  }
+
+  onVider() {
+    this.lesPointsVente.clear();
+  }
+
   ngOnInit(): void {
+    this.lesPointsVente = this.formBuilder.array([]);
+
     this.productForm = this.formBuilder.nonNullable.group({
       id: [1],
       libelle: [''],
@@ -51,12 +61,13 @@ export class AddproductComponent implements OnInit {
       madeIn: ['Tunisie'],
       categorie: [Category.Accessoires],
       nouveau: [true],
+      pointsVente: this.lesPointsVente,
     });
 
     this.productForm.get('nouveau')?.setValue(false);
 
-    this.productForm.get('libelle')?.valueChanges.subscribe((value) => {
-      console.log(value);
+    this.productForm.get('libelle')?.valueChanges.subscribe((data) => {
+      console.log(data);
     });
 
     this.productService.getProduits().subscribe({
