@@ -3,15 +3,30 @@
   <form [formGroup]="productForm" (ngSubmit)="onSubmitForm()">
     <div>
       <label> Identifiant du produit </label>
-      <input type="number" name="id" formControlName="id" />
+      <input
+        class="form-control"
+        type="number"
+        name="id"
+        formControlName="id"
+      />
     </div>
     <div>
       <label>Libellé</label>
-      <input type="text" name="lib" formControlName="libelle" />
+      <input
+        class="form-control"
+        type="text"
+        name="lib"
+        formControlName="libelle"
+      />
     </div>
     <div>
       <label>Prix</label>
-      <input type="number" name="prix" formControlName="prix" />
+      <input
+        class="form-control"
+        type="number"
+        name="prix"
+        formControlName="prix"
+      />
     </div>
 
     <div>
@@ -35,7 +50,11 @@
     </div>
     <div>
       <label>Catégorie</label>
-      <select formControlName="categorie" name="selCategories">
+      <select
+        class="form-select"
+        formControlName="categorie"
+        name="selCategories"
+      >
         <option *ngFor="let category of lescategories" [value]="category">
           {{ category }}
         </option>
@@ -43,11 +62,17 @@
     </div>
     <div>
       <label>
-        <input type="checkbox" name="nouv" formControlName="nouveau" /> Nouveau
+        <input
+          class="form-check"
+          type="checkbox"
+          name="nouv"
+          formControlName="nouveau"
+        />
+        Nouveau
       </label>
     </div>
     <input type="submit" value="Ajouter" />
-    <input type="button" value="Effacer" />
+    <input type="button" (click)="onResetForm()" value="Effacer" />
   </form>
 </div>
 <div class="container mt-5">
