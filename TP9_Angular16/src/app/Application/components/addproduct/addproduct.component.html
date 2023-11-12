@@ -1,0 +1,55 @@
+<div class="container">
+  <h3>Ajout d'un produit</h3>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmitForm()">
+    <div>
+      <label> Identifiant du produit </label>
+      <input type="number" name="id" formControlName="id" />
+    </div>
+    <div>
+      <label>Libellé</label>
+      <input type="text" name="lib" formControlName="libelle" />
+    </div>
+    <div>
+      <label>Prix</label>
+      <input type="number" name="prix" formControlName="prix" />
+    </div>
+
+    <div>
+      <label> Made In </label>
+      <label>
+        <input
+          type="radio"
+          name="madeIn"
+          value="Tunisie"
+          formControlName="madeIn"
+        />Tunisie
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="madeIn"
+          value="Autre"
+          formControlName="madeIn"
+        />Autre
+      </label>
+    </div>
+    <div>
+      <label>Catégorie</label>
+      <select formControlName="categorie" name="selCategories">
+        <option *ngFor="let category of lescategories" [value]="category">
+          {{ category }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" name="nouv" formControlName="nouveau" /> Nouveau
+      </label>
+    </div>
+    <input type="submit" value="Ajouter" />
+    <input type="button" value="Effacer" />
+  </form>
+</div>
+<div class="container mt-5">
+  {{ lesproduits | json }}
+</div>

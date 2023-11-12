@@ -1,0 +1,13 @@
+{
+  "employes": [
+    {
+      "matricule": "M589",
+      "nom": "Manel Mhamdi",
+      "affiliation": {
+        "fonction": "Technicien",
+        "departement": "TI"
+      },
+      "id": 1
+    }
+  ]
+}
