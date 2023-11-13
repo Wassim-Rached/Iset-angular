@@ -31,10 +31,11 @@ export class AddproductComponent implements OnInit {
   ) {}
 
   onSubmitForm() {
-    const newProduct: Product = this.productForm.value as Product;
-    this.productService.addProduit(newProduct).subscribe((produit) => {
-      this.lesproduits.push(produit);
-    });
+    this.productService
+      .addProduit(this.productForm.value)
+      .subscribe((produit) => {
+        this.lesproduits.push(produit);
+      });
   }
 
   onResetForm() {

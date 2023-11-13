@@ -8,6 +8,29 @@
         "departement": "TI"
       },
       "id": 1
+    },
+    {
+      "id": 246,
+      "matricule": "129",
+      "nom": "wassim",
+      "affiliation": {
+        "departement": "TI",
+        "fonction": "Ingénieur"
+      },
+      "diplome": [
+        {
+          "intitule": "ibn charf",
+          "annee": 2009
+        },
+        {
+          "intitule": "imtiez",
+          "annee": 2019
+        },
+        {
+          "intitule": "iset charguia",
+          "annee": 2029
+        }
+      ]
     }
   ]
 }

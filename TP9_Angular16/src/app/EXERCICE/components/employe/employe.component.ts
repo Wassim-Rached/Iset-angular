@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Departement, Fonction } from '../../enum/types';
-import { Affiliation } from '../../classes/affiliation';
 import { EmployeService } from '../../services/employe.service';
 import { Employe } from '../../classes/employe';
 
@@ -25,6 +24,7 @@ export class EmployeComponent implements OnInit {
       }),
       fonction: new FormControl(Fonction.Ing, { nonNullable: true }),
     }),
+    diplome: new FormArray([]),
   });
 
   constructor(private employeService: EmployeService) {}
@@ -38,8 +38,8 @@ export class EmployeComponent implements OnInit {
   }
 
   onSubmit() {
-    const newEmploye = this.form.value as Employe;
-    this.employeService.addNewEmploye(newEmploye).subscribe({
+    console.log(this.form.value);
+    this.employeService.addNewEmploye(this.form.value).subscribe({
       next: (employe) => {
         this.employes.push(employe);
       },
@@ -48,5 +48,23 @@ export class EmployeComponent implements OnInit {
 
   onVider() {
     this.form.reset();
+    this.lesDiplomes.clear();
+  }
+
+  onAjouterDiplome() {
+    this.lesDiplomes.push(
+      new FormGroup({
+        intitule: new FormControl('', { nonNullable: true }),
+        annee: new FormControl(0, { nonNullable: true }),
+      })
+    );
+  }
+
+  onSupprimerDiplome(index: number) {
+    this.lesDiplomes.removeAt(index);
+  }
+
+  public get lesDiplomes(): FormArray {
+    return this.form.get('diplome') as FormArray;
   }
 }
