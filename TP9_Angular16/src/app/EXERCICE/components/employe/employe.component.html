@@ -1,37 +1,40 @@
 <div class="container">
-    <h2> Ajout d'un employé</h2>
-    <form>
+  <h2>Ajout d'un employé</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div>
+      <label> Donnez le matricule</label>
+      <input type="text" formControlName="matricule" />
+    </div>
+
+    <div>
+      <label> Donnez le nom</label>
+      <input type="text" formControlName="nom" />
+    </div>
+
+    <div class="p-2 bg-light rounded">
+      <strong>Affiliation</strong>
+      <div formGroupName="affiliation">
         <div>
-            <label> Donnez le matricule</label>
-            <input type="text">
+          <label> Choisissez le département</label>
+          <input type="radio" value="TI" formControlName="departement" /> IT
+          <input type="radio" value="Finance" formControlName="departement" />
+          Finance
         </div>
-
         <div>
-            <label> Donnez le nom</label>
-            <input type="text">
+          <label> Donnez la fonction</label>
+          <select formControlName="fonction">
+            <option *ngFor="let choice of choices" [value]="choice">
+              {{ choice }}
+            </option>
+          </select>
         </div>
+      </div>
+    </div>
 
-        <div class="p-2 bg-light rounded">
-            <strong>Affiliation</strong>
-            <div>
-                <div>
-                    <label> Choisissez le département</label>
-                    <input type="radio" value="TI"> IT
-                    <input type="radio" value="Finance"> Finance
-                </div>
-                <div>
-                    <label> Donnez la fonction</label>
-                    <select>
-                    </select>
-                </div>
-            </div>
-        </div>
-
-
-        <input type="button" value="Ajouter Diplôme">
-        <br>
-        <button class="btn btn-primary">Ajouter Employé</button>
-        <input type="button" value="Vider">
-    </form>
+    <input type="button" value="Ajouter Diplôme" />
+    <br />
+    <button class="btn btn-primary">Ajouter Employé</button>
+    <input type="button" (click)="onVider()" value="Vider" />
+  </form>
 </div>
-<app-listemployes></app-listemployes>
+<app-listemployes [employees]="employes"></app-listemployes>
