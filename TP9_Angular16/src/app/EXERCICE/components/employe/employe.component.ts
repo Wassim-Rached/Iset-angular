@@ -12,10 +12,8 @@ import { Employe } from '../../classes/employe';
 export class EmployeComponent implements OnInit {
   choices = Object.values(Fonction);
   employes: Employe[] = [];
+
   form: FormGroup = new FormGroup({
-    id: new FormControl(Math.floor(Math.random() * 1000), {
-      nonNullable: true,
-    }),
     matricule: new FormControl(0, { nonNullable: true }),
     nom: new FormControl('', { nonNullable: true }),
     affiliation: new FormGroup({
