@@ -1,0 +1,31 @@
+<img src="assets/logo.png" alt="" />
+<div class="bordure">
+  <strong>Authentification</strong>
+  <form [formGroup]="Form" (ngSubmit)="onSubmit()" novalidate>
+    <div class="mb-3 mt-3">
+      <label class="form-label">Nom d'utilisateur:</label>
+      <input
+        formControlName="username"
+        type="text"
+        class="form-control"
+        placeholder="Introduisez votre nom d'utilisateur (directeur ou admin)"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Password:</label>
+      <input
+        formControlName="pwd"
+        type="password"
+        class="form-control"
+        placeholder="Introduisez votre mot de passe (pwdDirecteur ou pwdAdmin)"
+      />
+    </div>
+
+    <button class="btn btn-dark" [disabled]="Form.invalid">
+      <i class="fa-solid fa-unlock"></i>
+      S'authentifier
+    </button>
+    <div class="text-danger">{{ message }}</div>
+  </form>
+</div>
