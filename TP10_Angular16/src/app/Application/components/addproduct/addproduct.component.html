@@ -1,0 +1,106 @@
+<div class="container">
+  <h3>Ajout d'un produit</h3>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmitForm()">
+    <div>
+      <label> Identifiant du produit </label>
+      <input
+        type="number"
+        class="form-control"
+        name="id"
+        formControlName="id"
+      />
+      <div
+        *ngIf="idProduct?.invalid && idProduct?.dirty"
+        class="alert alert-danger"
+      >
+        L'identifiant doit etre un nombre
+      </div>
+    </div>
+    <div>
+      <label>Libellé</label>
+      <input
+        type="text"
+        class="form-control"
+        name="lib"
+        formControlName="libelle"
+      />
+      <div *ngIf="isInvalidRequiredLibele()" class="alert alert-danger">
+        Le Libele est obligatoire
+      </div>
+      <div *ngIf="isValidPattern()" class="alert alert-danger">
+        Le Libele doit commencer par une majuscule suivie au moins 1 lettre
+      </div>
+    </div>
+    <div>
+      <label>Prix</label>
+      <input
+        type="number"
+        class="form-control"
+        name="prix"
+        formControlName="prix"
+      />
+    </div>
+
+    <div>
+      <label> Made In </label>
+      <label>
+        <input
+          type="radio"
+          name="madeIn"
+          value="Tunisie"
+          formControlName="madeIn"
+        />Tunisie
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="madeIn"
+          value="Autre"
+          formControlName="madeIn"
+        />Autre
+      </label>
+    </div>
+    <div>
+      <label>Catégorie</label>
+      <select
+        name="selCategories"
+        formControlName="categorie"
+        class="form-select"
+      >
+        <option *ngFor="let c of lescategories" [value]="c">{{ c }}</option>
+      </select>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" name="nouv" formControlName="nouveau" /> Nouveau
+      </label>
+    </div>
+    <h5>Définition des points de vente</h5>
+    <div formArrayName="pointsVente">
+      <div *ngFor="let pv of lesPointsVente.controls; index as i">
+        <label>Point de vente n° {{ i + 1 }}</label>
+        <input type="text" class="form-control" [formControlName]="i" />
+        <div *ngIf="isInvalidPointVente(i)">min length est 2</div>
+      </div>
+      <input
+        type="button"
+        value="Ajouter un point de vente"
+        class="btn btn-secondary btn-sm"
+        (click)="onAjouter()"
+      />
+      <br />
+    </div>
+    <input
+      type="submit"
+      class="btn btn-success"
+      [disabled]="productForm.invalid"
+      value="Ajouter"
+    />
+    <input
+      type="button"
+      class="btn btn-warning"
+      value="Effacer"
+      (click)="onResetForm()"
+    />
+  </form>
+</div>
