@@ -1,0 +1,29 @@
+<h3>Liste des pays</h3>
+<ul>
+  <li *ngFor="let pay of pays">
+    <a [routerLink]="['/countries', pay.continent]">
+      <img width="50" height="40" [src]="pay.drapeau" [alt]="pay.nom" />
+    </a>
+    {{ pay.nom }}
+    -
+    <strong>Capital</strong> {{ pay.capitale }} <strong>Continent</strong>
+    {{ pay.continent }} <strong>Royaume</strong>
+    <input type="checkbox" [checked]="pay.royaume" readonly />
+    <p>
+      *population : {{ pay.population }} *superficie : {{ pay.superficie }} KM²
+      *Langues Parlees:
+      <span
+        *ngFor="let langue of pay.langues"
+        [ngClass]="
+	  		{ 
+				'badge': true,
+				'bg-info': pay.langues.length <= 1,
+				'bg-warning': pay.langues.length > 1,
+			 }
+	  "
+      >
+        {{ langue }}
+      </span>
+    </p>
+  </li>
+</ul>
