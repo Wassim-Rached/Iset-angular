@@ -1,0 +1,6 @@
+<h3>Pays du continent {{ continent }}</h3>
+<ul>
+  <li *ngFor="let pay of pays$ | async">
+    {{ pay.nom }}
+  </li>
+</ul>

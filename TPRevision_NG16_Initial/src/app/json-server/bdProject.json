@@ -1,0 +1,114 @@
+{
+  "voitures": [
+    {
+      "id": 1,
+      "infos": {
+        "marque": "Honda",
+        "modele": "Sedan",
+        "immatriculation": "223TU4856"
+      },
+      "puissance": 15,
+      "photo": "assets/sedan.jpg",
+      "dateCirculation": "2022-01-12",
+      "estAutomatique": true,
+      "listAccessoires": [
+        {
+          "propriete": "Système de navigation",
+          "valeur": "Intégré"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "infos": {
+        "marque": "Nissan",
+        "modele": "Micra",
+        "immatriculation": "202TU9875"
+      },
+      "puissance": 200,
+      "photo": "assets/micra.jpg",
+      "dateCirculation": "2023-02-15",
+      "estAutomatique": true,
+      "listAccessoires": [
+        {
+          "propriete": "Toit ouvrant",
+          "valeur": "Oui"
+        },
+        {
+          "propriete": "Système de divertissement arrière",
+          "valeur": "Intégré"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "infos": {
+        "marque": "Ford",
+        "modele": "Fiesta",
+        "immatriculation": "185TU6547"
+      },
+      "photo": "assets/fiesta.jpg",
+      "puissance": 120,
+      "dateCirculation": "2022-02-15",
+      "estAutomatique": false,
+      "listAccessoires": [
+        {
+          "propriete": "Climatisation",
+          "valeur": "Oui"
+        },
+        {
+          "propriete": "Bluetooth",
+          "valeur": "Oui"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "infos": {
+        "marque": "Peugeot",
+        "modele": "308",
+        "immatriculation": "215TU1236"
+      },
+      "photo": "assets/208.jpg",
+      "puissance": 180,
+      "dateCirculation": "2022-03-20",
+      "estAutomatique": true,
+      "listAccessoires": [
+        {
+          "propriete": "Toit panoramique",
+          "valeur": "Oui"
+        },
+        {
+          "propriete": "Cuir",
+          "valeur": "Non"
+        }
+      ]
+    }
+  ],
+  "logins": [
+    {
+      "id": 1,
+      "username": "directeur",
+      "pwd": "pwdDirecteur",
+      "role": "Other"
+    },
+    {
+      "id": 2,
+      "username": "admin",
+      "pwd": "pwdAdmin",
+      "role": "Admin"
+    },
+    {
+      "id": 3,
+      "username": "admin2",
+      "pwd": "pwdAdmin2",
+      "role": "Admin"
+    },
+    {
+      "id": 4,
+      "username": "agent",
+      "pwd": "pwdAgent",
+      "role": "Other"
+    }
+  ]
+}

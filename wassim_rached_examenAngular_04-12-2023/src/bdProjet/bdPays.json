@@ -1,0 +1,141 @@
+{
+  "pays": [
+    {
+      "id": 4,
+      "nom": "Tunisie",
+      "capitale": "Tunis",
+      "drapeau": "assets/tunisie.png",
+      "continent": "Afrique",
+      "superficie": 163610,
+      "population": 11818619,
+      "royaume": false,
+      "langues": [
+        "Arabe"
+      ]
+    },
+    {
+      "id": 7,
+      "nom": "Suisse",
+      "drapeau": "assets/suisse.png",
+      "capitale": "Berne",
+      "continent": "Europe",
+      "superficie": 41285,
+      "population": 8715000,
+      "royaume": false,
+      "langues": [
+        "Allemand",
+        "Français",
+        "Italien",
+        "Romanche"
+      ]
+    },
+    {
+      "id": 13,
+      "nom": "Belgique",
+      "capitale": "Bruxelles",
+      "drapeau": "assets/belgique.jpg",
+      "continent": "Europe",
+      "superficie": 30528,
+      "population": 11484055,
+      "royaume": true,
+      "langues": [
+        "Néerlandais",
+        "Français",
+        "Allemand"
+      ]
+    },
+    {
+      "id": 14,
+      "nom": "Maroc",
+      "capitale": "Rabat",
+      "drapeau": "assets/maroc.jpg",
+      "continent": "Afrique",
+      "superficie": 446550,
+      "population": 36910560,
+      "royaume": true,
+      "langues": [
+        "Arabe",
+        "Amazighe"
+      ]
+    },
+    {
+      "id": 17,
+      "nom": "Jordanie",
+      "capitale": "Amman",
+      "drapeau": "assets/jordanie.png",
+      "continent": "Asie",
+      "superficie": 89342,
+      "population": 10804329,
+      "royaume": false,
+      "langues": [
+        "Arabe"
+      ]
+    },
+    {
+      "id": 23,
+      "nom": "Brésil",
+      "capitale": "Brasilia",
+      "drapeau": "assets/bresil.jpg",
+      "continent": "Amérique du Sud",
+      "superficie": 8515767,
+      "population": 213993437,
+      "royaume": false,
+      "langues": [
+        "Portugais"
+      ]
+    },
+    {
+      "id": 31,
+      "nom": "Grande Bretagne",
+      "capitale": "Londres",
+      "drapeau": "assets/GB.png",
+      "continent": "Europe",
+      "superficie": 243610,
+      "population": 66435600,
+      "royaume": true,
+      "langues": [
+        "Anglais"
+      ]
+    },
+    {
+      "id": 33,
+      "nom": "Arabie Saoudite",
+      "capitale": "Riyad",
+      "drapeau": "assets/arabie.png",
+      "continent": "Asie",
+      "superficie": 2149690,
+      "population": 34813871,
+      "royaume": true,
+      "langues": [
+        "Arabe"
+      ]
+    },
+    {
+      "id": 40,
+      "nom": "Algérie",
+      "capitale": "Alger",
+      "drapeau": "assets/algerie.png",
+      "continent": "Afrique",
+      "superficie": 2381741,
+      "population": 40400000,
+      "royaume": false,
+      "langues": [
+        "Arabe",
+        "Berbère"
+      ]
+    },
+    {
+      "id": 51,
+      "nom": "Danemark",
+      "capitale": "Copenhague",
+      "drapeau": "assets/danemark.png",
+      "continent": "Europe",
+      "superficie": 42493,
+      "population": 5781190,
+      "royaume": true,
+      "langues": [
+        "Danois"
+      ]
+    }
+  ]
+}

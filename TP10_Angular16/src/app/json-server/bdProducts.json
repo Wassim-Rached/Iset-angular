@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "libelle": "stylo",
+      "prix": 0.8,
+      "madeIn": "Tunisie",
+      "categorie": "Fourniture",
+      "nouveau": true
+    },
+    {
+      "id": 2,
+      "libelle": "Chaise",
+      "prix": 58.6,
+      "madeIn": "Autre",
+      "categorie": "Meubles",
+      "nouveau": false,
+      "pointsVente": [
+        "Sfax",
+        "Nabeul"
+      ]
+    }
+  ]
+}

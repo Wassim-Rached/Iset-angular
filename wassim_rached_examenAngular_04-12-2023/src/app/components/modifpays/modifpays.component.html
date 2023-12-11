@@ -1,0 +1,41 @@
+<h3>Modification des informations d'un pays</h3>
+<form [formGroup]="Form!" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Choisir un Pays : </label>
+    <!-- Liste déroulante qui charge à partir du serveur-->
+    <select
+      #selectedPayId
+      class="form-select"
+      (change)="onChangePay(selectedPayId.value)"
+    >
+      <option selected disabled></option>
+      <option *ngFor="let pay of pays" [value]="pay.id">
+        {{ pay.id }} -- {{ pay.nom }}
+      </option>
+    </select>
+  </div>
+  <div *ngIf="selectedPay">
+    <div>
+      <label>Capitale du pays : </label>
+      <input formControlName="capitale" type="text" class="form-control" />
+      <div class="alert alert-danger" *ngIf="invalidCapitalPattern()">
+        La capital est non valid
+      </div>
+    </div>
+    <div>
+      <label>Continent : </label>
+      <!-- Liste déroulante qui se charge à partir du type énuméré Continent -->
+      <select formControlName="continent">
+        <option *ngFor="let continent of continents" [value]="continent">
+          {{ continent }}
+        </option>
+      </select>
+    </div>
+    <div>
+      <label>Population du pays : </label>
+      <input formControlName="population" type="number" class="form-control" />
+    </div>
+    <button type="submit" [disabled]="Form.invalid">Modifier Pays</button>
+    <button (click)="onReset()" type="button">Effacer</button>
+  </div>
+</form>
